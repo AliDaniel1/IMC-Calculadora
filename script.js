@@ -23,9 +23,22 @@ const Calcular_IMC = ()=>{
         Texto.innerHTML = "Estas muy gordo";
         Texto.style.color ="#f00"
     };
+    if(Peso.value == 0 || Altura.value == 0 ){
+        Respuesta.innerHTML ="";
+        Texto.innerHTML = "Revise los datos ingresados"
+        Texto.style.color = "#000"
+    }
     if(Peso.value == "" && Altura.value == "" || Peso.value == null && Altura.value == null){
         Respuesta.innerHTML ="";
         Texto.innerHTML = "Debe introducir su peso y altura"
         Texto.style.color = "#000"
     };
 };
+
+window.addEventListener("keydown", (e)=>{
+    const Tecla = e.keyCode;
+    if(Tecla == 13){
+        e.preventDefault();
+        Calcular_IMC();
+    }
+})
